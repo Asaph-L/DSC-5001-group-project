@@ -1,0 +1,3 @@
+rule,late_orders,late_rate
+promised calendar day,6534,0.06773090079817559
+exact promised timestamp,7826,0.08112366538820359

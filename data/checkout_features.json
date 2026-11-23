@@ -1,0 +1,13 @@
+{
+  "log_numeric": [
+    "item_count", "product_count", "seller_count", "merchandise_brl", "freight_brl",
+    "max_item_price_brl", "weight_kg", "volume_l", "distance_km"
+  ],
+  "numeric": [
+    "promise_days", "interstate_item_share", "purchase_month_sin", "purchase_month_cos",
+    "purchase_hour_sin", "purchase_hour_cos"
+  ],
+  "categorical": [
+    "buyer_state", "primary_seller_state", "primary_category", "purchase_weekday"
+  ]
+}

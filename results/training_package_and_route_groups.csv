@@ -1,0 +1,14 @@
+feature,group,orders,late_orders,delay_rate
+package_weight,1–5 kg,18960,1370,0.07225738396624473
+package_weight,5–15 kg,6966,522,0.07493540051679587
+package_weight,>15 kg,1890,171,0.09047619047619047
+package_weight,Unknown,16,0,0.0
+package_weight,≤1 kg,36569,2315,0.06330498509666657
+package_volume,25–75 L,10664,766,0.0718304576144036
+package_volume,5–25 L,25426,1710,0.06725399197671675
+package_volume,>75 L,2525,205,0.08118811881188119
+package_volume,Unknown,16,0,0.0
+package_volume,≤5 L,25770,1697,0.06585176561893674
+state_crossing,All interstate,41850,3424,0.08181600955794505
+state_crossing,Mixed,147,1,0.006802721088435374
+state_crossing,Within state,22404,953,0.04253704695590073

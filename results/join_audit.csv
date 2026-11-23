@@ -1,0 +1,8 @@
+,count
+Eligible order items,110189
+After item dimension joins,110189
+Orders with no matched items,0
+Orders with multiple sellers,1275
+Orders with incomplete route distance,481
+Orders with incomplete package weight,22
+Orders with incomplete package volume,16

@@ -1,0 +1,27 @@
+{
+  "selection_metric": "average_precision",
+  "selected_family": "Logistic",
+  "regularized_logistic_comparator": "Ridge logistic",
+  "ensemble_for_interactions": "Gradient boosting",
+  "hyperparameters": {
+    "Logistic": {},
+    "Lasso logistic": {
+      "model__C": 0.03
+    },
+    "Ridge logistic": {
+      "model__C": 0.03
+    },
+    "Pruned tree": {
+      "model__max_depth": 10
+    },
+    "Random forest": {
+      "model__max_depth": 8
+    },
+    "Gradient boosting": {
+      "model__learning_rate": 0.03
+    }
+  },
+  "validation_start": "2018-04-15",
+  "test_start": "2018-06-21",
+  "seed": 5001
+}
