@@ -1,5 +1,7 @@
 # Data and prediction contract
 
+English | [简体中文](README.zh-CN.md)
+
 Use version 2 of the **Brazilian E-Commerce Public Dataset by Olist**, published by Olist under CC BY-NC-SA 4.0. It records anonymized Brazilian marketplace transactions from 2016–2018. This project derives an order-level table and aggregate results from seven CSVs. [Olist data card](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) · [Versioned ZIP](https://www.kaggle.com/api/v1/datasets/download/olistbr/brazilian-ecommerce?datasetVersionNumber=2) · [Data license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## Get the files
@@ -18,7 +20,7 @@ Run [01 · Build the checkout order table](../notebooks/01_build_order_table.ipy
 
 ## Define a late order
 
-Keep completed deliveries with purchase, promise and arrival dates, arrival at or after purchase, and a promise date on or after the purchase day. Late means **arrival calendar day > promised calendar day**, using the timestamps as recorded. Arrival at any hour on the promised date counts as on time. All promise timestamps in the eligible cohort are at midnight. The alternative exact-timestamp label is reported in the [definition audit](../results/label_definitions.csv).
+Keep completed deliveries with purchase, promise and arrival dates, arrival at or after purchase, and a promise date on or after the purchase day. Late means **arrival calendar day > promised calendar day**, using the timestamps as recorded. Arrival at any hour on the promised date counts as on time. All promise timestamps in the eligible cohort are at midnight. A timestamp deadline labels 1,292 extra same-day deliveries late. [Definition audit](../results/tables/label_definitions.csv)
 
 This cohort supports comparisons among ultimately delivered orders. Cancellation, non-delivery and customer reviews would require separate outcomes. Static product, seller, buyer and postal-reference fields are assumed to approximate the information available at checkout. The release provides a historical snapshot of these attributes.
 
@@ -39,4 +41,6 @@ The [feature allowlist](checkout_features.json) is the input contract for every 
 | `buyer_state`, `primary_seller_state`, `primary_category` | Buyer state plus seller state and category of the highest-priced item. Lowest item sequence breaks equal-price ties. |
 | `purchase_weekday` | Weekday of purchase. |
 
-A physical total or route maximum with an unknown contributing item stays missing. All retained orders survive the item aggregation. Notebook 01 checks row counts and reconciles price and freight totals. Each model learns its medians, scaling and categorical vocabulary from its own fitting sample.
+A physical total or route maximum with an unknown contributing item stays missing. All retained orders survive the item aggregation. Notebook 01 checks row counts and reconciles price and freight totals. The six course pipelines learn imputation, scaling and categorical encodings within each fit. CatBoost uses native numeric missing values and a fixed missing-category label. Its categorical statistics are learned only from its fitting rows.
+
+The package and promise groups used in notebook 04 describe model behavior. The weight and volume cutoffs are training-set quartiles. All seven classifiers use the same 19 checkout inputs. [Research findings](../docs/findings.md) · [Project home](../README.md)
